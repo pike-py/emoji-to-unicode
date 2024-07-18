@@ -1,0 +1,6 @@
+{
+    "port": 8000,
+    "regexPatterns": {
+        "customEmojiPattern": "[₹Ç◘ù]"
+    }
+}

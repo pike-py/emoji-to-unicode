@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji to Unicode Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>COMMS Emoji Formatter😁</h1>
+    <form id="convert-form">
+        <input type="text" id="text-input" name="text" placeholder="Enter text with emojis...">
+        <button type="submit">Convert</button>
+    </form>
+  
+    <div id="converted-text"></div>
+
+    <button id="copy-button" style="display: none;">Copy Text</button>
+
+    <script>
+        document.getElementById('convert-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const text = document.getElementById('text-input').value;
+            const response = await fetch('/convert', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text }),
+            });
+            const result = await response.json();
+            typeText(result.convertedText);
+        });
+
+        function typeText(text) {
+            const target = document.getElementById('converted-text');
+            target.innerHTML = '';
+            let index = 0;
+            const typingSpeed = 30; // Adjust the speed of the typing effect (milliseconds per character)
+            const startDelay = 100; // Delay before starting the typing effect (milliseconds)
+
+            setTimeout(() => {
+                const interval = setInterval(() => {
+                    if (index < text.length) {
+                        target.innerHTML += text.charAt(index);
+                        index++;
+                    } else {
+                        clearInterval(interval);
+                        document.getElementById('copy-button').style.display = 'inline-block';
+                    }
+                }, typingSpeed);
+            }, startDelay);
+        }
+
+        document.getElementById('copy-button').addEventListener('click', () => {
+            const text = document.getElementById('converted-text').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Text copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    </script>
+</body>
+</html>

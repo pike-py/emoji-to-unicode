@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: 700;
+    color: rgb(105, 110, 123);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+#text-input {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    border-radius: 24px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0px 1px 6px rgba(32, 33, 36, 0.28);
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+#text-input:focus {
+    box-shadow: 0px 1px 12px rgba(32, 33, 36, 0.28);
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 24px;
+    background-color: #1a73e8;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #1669c1;
+}
+
+#result-container {
+    display: flex;
+    align-items: center;
+    margin-top: 60px; /* Increased the margin */
+}
+
+
+h2 {
+    font-size: 1.5em;
+    color: #555;
+    font-weight: 500;
+    margin-right: 10px;
+    font-family: sans-serif;
+}
+
+
+#converted-text {
+    /* word-wrap: break-word; */
+    white-space: pre-wrap;
+    max-width: 600px;
+    text-align: center;
+    font-family:Lato;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 1px 6px rgba(32, 33, 36, 0.28);
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-wrap: break-word; /* Ensures text breaks */
+    margin-top: 60px; 
+   
+}
+
+
+
+#copy-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 24px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#copy-button:hover {
+    background-color: #45a049;
+}
